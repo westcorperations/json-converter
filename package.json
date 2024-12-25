@@ -1,0 +1,45 @@
+{
+  "name": "json-format-converter",
+  "version": "1.0.0",
+  "description": "A Node.js package to convert JSON to various formats like CSV and PDF",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js"
+  },
+  "scripts": {
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "start": "node examples/basic-usage.js",
+    "lint": "eslint ."
+  },
+  "keywords": [
+    "json",
+    "converter",
+    "csv",
+    "pdf",
+    "express",
+    "node"
+  ],
+  "author": "Richard Ejike",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "json2csv": "^5.0.6",
+    "pdfkit": "^0.13.0",
+    "cors": "^2.8.5",
+    "helmet": "^4.6.0"
+  },
+  "devDependencies": {
+    "jest": "^27.0.6",
+    "eslint": "^7.32.0",
+    "supertest": "^6.1.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/westcorperations/json-format-converter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/westcorperations/json-format-converter/issues"
+  },
+  "homepage": "https://github.com/westcorperations/json-format-converter#readme"
+}
