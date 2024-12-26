@@ -1,5 +1,5 @@
 {
-  "name": "json-format-converter",
+  "name": "json-converter",
   "version": "1.0.0",
   "description": "A Node.js package to convert JSON to various formats like CSV and PDF",
   "type": "module",
@@ -36,10 +36,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/westcorperations/json-format-converter.git"
+    "url": "https://github.com/westcorperations/json-converter"
   },
   "bugs": {
-    "url": "https://github.com/westcorperations/json-format-converter/issues"
+    "url": "https://github.com/westcorperations/json-converter/issues"
   },
-  "homepage": "https://github.com/westcorperations/json-format-converter#readme"
+  "homepage": "https://github.com/westcorperations/json-converter#readme"
 }
