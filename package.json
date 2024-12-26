@@ -8,8 +8,9 @@
     ".": "./index.js"
   },
   "scripts": {
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "start": "node examples/basic-usage.js",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest",
+    "test:watch": "NODE_OPTIONS=--experimental-vm-modules jest --watch",
+    "test:coverage": "NODE_OPTIONS=--experimental-vm-modules jest --coverage",
     "lint": "eslint ."
   },
   "keywords": [
@@ -23,15 +24,19 @@
   "author": "Richard Ejike",
   "license": "MIT",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
+    "helmet": "^4.6.0",
     "json2csv": "^5.0.6",
     "pdfkit": "^0.13.0",
-    "cors": "^2.8.5",
-    "helmet": "^4.6.0"
+    "winston": "^3.17.0"
   },
   "devDependencies": {
-    "jest": "^27.0.6",
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "babel-jest": "^29.7.0",
     "eslint": "^7.32.0",
+    "jest": "^27.0.6",
     "supertest": "^6.1.6"
   },
   "repository": {
