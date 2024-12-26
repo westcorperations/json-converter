@@ -1,0 +1,50 @@
+name: Node.js CI/CD for npm Package
+
+on:
+  push:
+    branches:
+      - main  # This will trigger on a push to the `main` branch
+    tags:
+      - 'v*'  # This will trigger on version tags (e.g., v1.0.0)
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # Runs on the latest Ubuntu image
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'  # Set your desired Node.js version
+
+      - name: Install dependencies
+        run: npm install  # Installs your npm dependencies
+
+      - name: Run tests
+        run: npm test  # Runs your test suite (make sure you have a test script in package.json)
+
+  publish:
+    runs-on: ubuntu-latest  # Runs on the latest Ubuntu image
+    needs: test  # Only runs if the 'test' job passed
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'  # Use your desired Node.js version
+
+      - name: Install dependencies
+        run: npm install  # Installs your npm dependencies
+
+      - name: Publish to npm
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${{secrets.NPM_TOKEN}}" > ~/.npmrc
+          npm publish --access public  # Publishes the package to npm
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}  # Use GitHub secrets to store your npm token
