@@ -28,12 +28,10 @@ import JSONFormatConverter from 'json-format-converter';
 const converter = new JSONFormatConverter();
 
 // Sample data
-const data = {
-    users: [
+const data = [
         { name: "John Smith", age: 30, email: "john@example.com" },
         { name: "Jane Doe", age: 25, email: "jane@example.com" }
-    ]
-};
+    ];
 
 // Convert to CSV
 const csvData = await converter.convertToCSV(data);
@@ -85,12 +83,10 @@ const converter = new JSONFormatConverter(options);
 ### Converting to CSV
 
 ```javascript
-const data = {
-    users: [
+const data = [
         { name: "John", age: 30 },
         { name: "Jane", age: 25 }
-    ]
-};
+    ];
 
 const csvData = await converter.convertToCSV(data);
 ```
@@ -110,13 +106,13 @@ Using curl:
 curl -X POST \
   http://localhost:3000/api/convert/csv \
   -H "Content-Type: application/json" \
-  -d '{"users":[{"name":"John","age":30},{"name":"Jane","age":25}]}'
+  -d '[{"name":"John","age":30},{"name":"Jane","age":25}]'
 
 # Convert to PDF
 curl -X POST \
   http://localhost:3000/api/convert/pdf \
   -H "Content-Type: application/json" \
-  -d '{"users":[{"name":"John","age":30},{"name":"Jane","age":25}]}'
+  -d "["name":"John","age":30},{"name":"Jane","age":25}]"
 ```
 
 ## Error Handling
